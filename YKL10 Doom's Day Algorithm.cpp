@@ -8,13 +8,13 @@ using namespace std;
 string daysOfWeek[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
 // Doomsday 日期（2011 年非閏年）
-int doomsdays[] = {0, 10, 21, 0, 4, 9, 6, 11, 8, 5, 10, 7, 12};
-
-// 計算日期對應的星期幾
+int doomsdays[] = {10, 21, 7, 4, 9, 6, 11, 8, 5, 10, 7, 12};
+// 1/10,2/21,4/4,5/9/6/6,7/11,8/8,9/5,10/10,11/7,12/12
+//  計算日期對應的星期幾
 string getDayOfWeek(int month, int day)
 {
     // 找到該月份的 Doomsday
-    int doomsday = doomsdays[month];
+    int doomsday = doomsdays[month - 1];
     // 計算日期與該月份 Doomsday 的天數差
     int difference = day - doomsday;
     // Doomsday 是星期一，所以從星期一開始計算
