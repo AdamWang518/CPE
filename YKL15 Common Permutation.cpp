@@ -5,7 +5,11 @@ using namespace std;
 
 int main() {
     string a, b;
-    while (cin>>a>>b) {
+    while (getline(cin, a) && getline(cin, b)) {
+    	if(a=="\n"&&b=="\n"){
+    		cout<< endl<<endl;
+    		continue;
+    	}
         int freqA[26] = {0}, freqB[26] = {0};
         for (char c : a) {
             freqA[c - 'a']++;

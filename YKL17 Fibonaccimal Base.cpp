@@ -1,58 +1,35 @@
-
-#include <iostream>
-#include <string>
-#include <vector>
+#include<iostream>
+#include<vector>
 using namespace std;
-
-int main()
-{
-    int n, tmp, index = 2;
-    int dec_base;
-    vector<int> fib;
-    string fib_base;
-
-    // store the Fibonacci sequence into the vector
-    fib.push_back(1);
-    fib.push_back(2);
-    while (fib.back() <= 100000000)
-    {
-        fib.push_back(fib[index - 2] + fib[index - 1]);
-        index++;
-    }
-
-    cin >> n;
-    for (int i = 0; i < n; i++)
-    {
-        cin >> dec_base;
-        tmp = dec_base;
-        index = fib.size() - 1;
-        fib_base = ""; // Fibonaccimal base
-
-        while (tmp != 0)
-        {
-            if (tmp >= fib[index])
-            {
-                if (fib_base == "" || fib_base.back() != '1')
-                { // don't use two consecutive Fibonacci numbers
-                    fib_base = fib_base + "1";
-                    tmp = tmp - fib[index];
-                }
+int main(){
+	vector<int> fib;
+	int index=2;
+	fib.push_back(0);
+	fib.push_back(1);
+	while(fib.back()<=100000000){
+		fib.push_back(fib[index-2]+fib[index-1]);
+		index++;
+	}
+	int n;
+	cin>>n;
+	for(int i=0;i<n;i++){
+		int number;
+		cin>>number;
+		int tmp=number;
+		string fibStr="";
+		for(int a=fib.size()-1;a>=2;a--){
+			if (tmp>=fib[a]&&(fibStr == "" || fibStr.back() != '1')){
+                    fibStr = fibStr + "1";
+                    tmp = tmp - fib[a];
+           	}
+           	else if (tmp<fib[a]&&fibStr == ""){
+                
             }
-            else if (fib_base == "")
-            {
+           	else {
+                fibStr = fibStr + "0";
             }
-            else
-            {
-                fib_base = fib_base + "0";
-            }
-            index--;
-        }
-        for (; index >= 0; index--)
-        {
-            fib_base = fib_base + "0";
-        }
-        cout << dec_base << " = " << fib_base << " (fib)" << endl;
-    }
-
-    return 0;
+		}
+		cout << number << " = " << fibStr << " (fib)" << endl;
+	}
+	return 0;
 }
