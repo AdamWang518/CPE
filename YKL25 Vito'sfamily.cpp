@@ -1,26 +1,30 @@
-#include<iostream>
-#include<vector>
-#include<algorithm>
+#include <algorithm>
+#include <iostream>
+#include <vector>
 using namespace std;
-int main(){
+int main()
+{
 	int a;
-	cin>>a;
-	for(int i=0;i<a;i++){
+	cin >> a;
+	for (int i = 0; i < a; i++)
+	{
 		int b;
-		cin>>b;
+		cin >> b;
 		vector<int> v;
-		for(int j=0;j<b;j++){
+		for (int j = 0; j < b; j++)
+		{
 			int temp;
-			cin>>temp;
+			cin >> temp;
 			v.push_back(temp);
 		}
-		sort(v.begin(),v.end());
-		int vitoHome=v[(int)(v.size()-1)/2];
-		int total=0;
-		for(int j=0;j<b;j++){
-			total+=abs(v[j]-vitoHome);
+		sort(v.begin(), v.end());
+		int vitoHome = v[(int)(v.size() - 1) / 2];
+		int total = 0;
+		for (int j = 0; j < b; j++)
+		{
+			total += abs(v[j] - vitoHome);
 		}
-		cout<<total<<endl;
+		cout << total << endl;
 	}
 	return 0;
 }
