@@ -36,7 +36,7 @@ int main()
 				}
 			}
 		}
-
+		// 若要回文，記得檢查負數
 		if (symmetric)
 		{
 			cout << "Symmetric." << endl;
