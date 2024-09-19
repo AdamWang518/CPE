@@ -1,21 +1,51 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
 int main()
 {
-	int a, n, count = 1;
-	while (cin >> a)
+	int t, n;
+	cin >> t;
+	for (int test = 1; test <= t; test++)
 	{
-		cout << "Test #" << count << ": ";
-		count++;
-		vector<vector<int>> v(n, vector<int>(n, 0));
+		cout << "Test #" << test << ": ";
+
+		string skip;
+		cin >> skip >> skip >> n;
+
+		vector<vector<long long>> matrix(n, vector<long long>(n));
+
 		for (int i = 0; i < n; i++)
 		{
 			for (int j = 0; j < n; j++)
 			{
-				cin >> v[i][j];
+				cin >> matrix[i][j];
 			}
 		}
+
+		bool symmetric = true;
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+
+				if (matrix[i][j] != matrix[n - 1 - i][n - 1 - j] || matrix[i][j] < 0)
+				{
+					symmetric = false;
+					break;
+				}
+			}
+		}
+
+		if (symmetric)
+		{
+			cout << "Symmetric." << endl;
+		}
+		else
+		{
+			cout << "Non-symmetric." << endl;
+		}
 	}
+
 	return 0;
 }
