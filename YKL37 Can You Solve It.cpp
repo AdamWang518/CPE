@@ -8,6 +8,7 @@ int main()
     for (int test = 0; test < t; test++)
     {
         cin >> x1 >> y1 >> x2 >> y2;
+        cout << "Case " << test + 1 << ":";
     }
     return 0;
 }
