@@ -15,6 +15,7 @@ int main()
     cin >> n;
     while (n--)
     {
+        cin >> m;
         int b1 = count_ones_in_binary(m);
         int b2 = count_ones_in_binary(stoi(to_string(m), nullptr, 16));
         cout << b1 << " " << b2 << endl;
